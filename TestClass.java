@@ -137,7 +137,9 @@ public class TestClass {
 		System.out.println(deck.sizeOf() + " left in deck\n");
 		
 		// Interface Testing
-		new Interface();
+		Player player = new Player();
+		Dealer dealer = new Dealer();
+		new Interface(player, dealer);
 
 	}
 

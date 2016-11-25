@@ -12,20 +12,21 @@ public class Interface extends JFrame {
 	JButton jbtStay;
 	JButton jbtQuit;
 	
-	public Interface() {
+	public Interface(Player player, Dealer dealer) {
+		
 		// Get screen dimension info with Toolkit and set variables to anchor panels
 		Toolkit tk = Toolkit.getDefaultToolkit();
 		Dimension dim = tk.getScreenSize();
-		// Player panel anchors
-		int playerXPosLeft = 0;
-		int playerYPosTop = dim.height;
-		int playerXPosRight = dim.width;
-		int playerYPosBottom = dim.height / 2;
-		// Dealer panel anchors
-		int dealerXPosLeft = 0;
-		int dealerYPosTop = dim.height / 2;
-		int dealerXPosRight = dim.width;
-		int dealerYPosBottom = 0;
+//		// Player panel anchors
+//		int playerXPosLeft = 0;
+//		int playerYPosTop = dim.height;
+//		int playerXPosRight = dim.width;
+//		int playerYPosBottom = dim.height / 2;
+//		// Dealer panel anchors
+//		int dealerXPosLeft = 0;
+//		int dealerYPosTop = dim.height / 2;
+//		int dealerXPosRight = dim.width;
+//		int dealerYPosBottom = 0;
 		
 		
 		// Create full screen window
@@ -39,9 +40,9 @@ public class Interface extends JFrame {
 		JPanel panel1 = new JPanel();
 		this.add(panel1);
 		JPanel playerPanel = new JPanel();
-		playerPanel.setLayout(new GridLayout(playerXPosLeft, playerYPosTop, playerXPosRight, playerYPosBottom));
+//		playerPanel.setLayout(new GridLayout(playerXPosLeft, playerYPosTop, playerXPosRight, playerYPosBottom));
 		JPanel dealerPanel = new JPanel();
-		dealerPanel.setLayout(new GridLayout(dealerXPosLeft, dealerYPosTop, dealerXPosRight, dealerYPosBottom));
+//		dealerPanel.setLayout(new GridLayout(dealerXPosLeft, dealerYPosTop, dealerXPosRight, dealerYPosBottom));
 		panel1.add(playerPanel);
 		panel1.add(dealerPanel);
 		
@@ -50,6 +51,14 @@ public class Interface extends JFrame {
 		jbtStay = new JButton("STAY");
 		jbtQuit = new JButton("QUIT");
 		jbtPlaceBet	= new JButton("PLACE BET");
+		
+		// Set up labels
+		JLabel bankLabel = new JLabel("Your Bank");
+		JLabel bankAmount = new JLabel();
+		bankAmount.setText(String.valueOf(player.getBank()));
+		playerPanel.add(bankLabel);
+		dealerPanel.add(bankAmount);
+		
 		
 		ListenForButton lForButton = new ListenForButton();
 		
